@@ -153,6 +153,7 @@ export const CrowdFundingProvider = ({ children }) => {
 
     //Connect Wallet
     const connectWallet = async () => {
+        console.log("Connecting wallet");
         try {
             if(!window.ethereum) {
                 return setOpenError(true), setError("Please install MetaMask");
@@ -161,6 +162,7 @@ export const CrowdFundingProvider = ({ children }) => {
                 method: "eth_requestAccounts",
             });
             setCurrentAccount(accounts[0]);
+            console.log("Connected", accounts[0]);
         } catch (error) {
             console.log("Error while connecting wallet", error);
         }

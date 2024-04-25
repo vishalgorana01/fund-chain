@@ -26,7 +26,7 @@ const Navbar = () => {
                   Company
                 </span>
               </a>
-              <ul class="flex items-center hidden space-x-8 lg: flex">
+              <ul class="flex items-center  space-x-8 lg:flex">
                 {menuList.map((el, i) => (
                   <li key={i + 1}>
                     <a
@@ -42,8 +42,8 @@ const Navbar = () => {
                 ))}
               </ul>
             </div>
-            {currentAccount && (
-              <ul class="flex items-center hidden space-x-8 lg:flex">
+            {!currentAccount && (
+              <ul class="flex items-center  space-x-8 lg:flex">
                 <li>
                   <button
                     onClick={() => connectWallet()}
@@ -81,8 +81,7 @@ const Navbar = () => {
                         >
                           <Logo color="text-black" />
                           <span
-                            class="ml-2 text-xl font-bold tracking-wide text-gray-800
-uppercase"
+                            class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
                           >
                             Company
                           </span>
@@ -93,18 +92,18 @@ uppercase"
                           aria-label="Close Menu"
                           title="Close Menu"
                           class="p-2 -mt-2 -mr-2 transition duration-200 rounded
-hover: bg-gray-200 focus:bg-gray-200 focus: out line-none
-focus: shadow-out line"
+                            hover: bg-gray-200 focus:bg-gray-200 focus: out line-none
+                            focus: shadow-out line"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
                             <path
                               fill="currentColor"
                               d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12, 10.6L5.7,4.3c-0.4-0.
-4-1-0.4-1.4,05-0.4,1,0,1.416.3,6.31-6.3,6.3 c-0.4,0.4-0.4,1,
-0,1.4C4.5, 19.9,4.7,20,5,2050.5-0.1,0.7-0.316.3-6.316.3,6.
-3c0. 2,0.2,0.5,0.3,0.7,0.350.5-0.1,0.7-0.3 с0.4-0.4,0.4-1,
-0-1.4L13.4, 1216.3-6.3C20.1,5.3,20.1,4.7,19.7,4.32"
+                                4-1-0.4-1.4,05-0.4,1,0,1.416.3,6.31-6.3,6.3 c-0.4,0.4-0.4,1,
+                                0,1.4C4.5, 19.9,4.7,20,5,2050.5-0.1,0.7-0.316.3-6.316.3,6.
+                                3c0. 2,0.2,0.5,0.3,0.7,0.350.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,
+                                0-1.4L13.4, 1216.3-6.3C20.1,5.3,20.1,4.7,19.7,4.32"
                             />
                           </svg>
                         </button>
@@ -120,27 +119,29 @@ focus: shadow-out line"
                               aria-label="Our product"
                               title="Our product"
                               class="font-medium tracking-wide text-gray-700
-transition-colors duration-200
-hover: text-deep-purple-accent-400"
+                                transition-colors duration-200
+                                hover: text-deep-purple-accent-400"
                             >
                               {el}
                             </a>
                           </li>
                         ))}
+                        {!currentAccount && (
                         <li>
                           <a
                             href="/"
                             class="inline-flex items-center background justify-center
-w-full h-12 px-6 font-medium tracking-wide text-white
-transition duration-200 rounded shadow-md
-bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700
-focus: shadow-outline focus:outline-none"
+                                w-full h-12 px-6 font-medium tracking-wide text-white
+                                transition duration-200 rounded shadow-md
+                                bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700
+                                focus: shadow-outline focus:outline-none"
                             aria-label="Sign up"
                             title="Sign up"
                           >
                             Connect Wallet
                           </a>
                         </li>
+                      )}
                       </ul>
                     </nav>
                   </div>
