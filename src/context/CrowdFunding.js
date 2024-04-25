@@ -15,7 +15,7 @@ export const CrowdFundingContext = React.createContext();
 
 //Provider
 export const CrowdFundingProvider = ({ children }) => {
-    const title = "CrowdFunding";
+    const titleData = "CrowdFunding";
     const [currentAccount, setCurrentAccount] = useState("");
 
     const createCampaign = async (campaign) => {
@@ -50,7 +50,7 @@ export const CrowdFundingProvider = ({ children }) => {
 
         const parsedCampaigns = campaigns.map((campaign, i) => ({
             owner: campaign.owner,
-            title: campaign.title,
+            titleData: campaign.title,
             description: campaign.description,
             target: ethers.utils.formatEther(campaign.target.toString()),
             deadline: campaign.deadline.toNumber(),
@@ -145,5 +145,40 @@ export const CrowdFundingProvider = ({ children }) => {
             console.log("Error- somthing wrong while connecting to wallet", error);
         }
     };
-    
+
+    useEffect(() => {
+        checkIfWalletConnected();
+    }, []);
+
+    //Connect Wallet
+    const connectWallet = async () => {
+        try {
+            if(!window.ethereum) {
+                return setOpenError(true), setError("Please install MetaMask");
+            }
+            const accounts = await window.ethereum.request({
+                method: "eth_requestAccounts",
+            });
+            setCurrentAccount(accounts[0]);
+        } catch (error) {
+            console.log("Error while connecting wallet", error);
+        }
+    };
+
+    return (
+        <CrowdFundingContext.Provider
+            value={{
+                title,
+                currentAccount,
+                createCampaign,
+                getCampaigns,
+                getUserCampaigns,
+                donate,
+                getDonations,
+                connectWallet,
+            }}
+        >
+            {children}
+        </CrowdFundingContext.Provider>
+    );
 };
