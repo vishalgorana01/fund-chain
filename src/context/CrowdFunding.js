@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
@@ -168,7 +169,7 @@ export const CrowdFundingProvider = ({ children }) => {
     return (
         <CrowdFundingContext.Provider
             value={{
-                title,
+                titleData,
                 currentAccount,
                 createCampaign,
                 getCampaigns,
