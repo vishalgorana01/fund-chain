@@ -13,6 +13,7 @@ export default function Home() {
     getUserCampaigns,
     donate,
     getDonations,
+    ethereum,
   } = useContext(CrowdFundingContext);
 
   const [allCampaigns, setAllCampaigns] = useState();
@@ -21,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     getCampaigns().then((data) => setAllCampaigns(data));
     getUserCampaigns().then((data) => setUserCampaigns(data));
-  }, []);
+  }, ethereum);
 
 //   Donate PopUp Modal
   const [opanModal, setOpanModal] = useState(false);
@@ -33,19 +34,23 @@ export default function Home() {
     <main>
       <Hero titleData={titleData} createCampaign={createCampaign} />
 
+    {allCampaigns && (
       <Card
         title="All Campaigns"
         allCampaigns={allCampaigns}
         setDonate={setDonateCampaign}
         setOpanModal={setOpanModal}
       />
+    )}
 
-      <Card
+    {userCampaigns && (
+    <Card
         title="Your Campaigns"
         allCampaigns={userCampaigns}
         setDonate={setDonateCampaign}
         setOpanModal={setOpanModal}
       />
+    )}
 
       {opanModal && (
         <PopUp
