@@ -22,3 +22,13 @@
   bottom: -1.9rem;
   z-index: 3;
 }
+
+.footer-full{
+  width: 100vw;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  align-items: center;
+  text-align: center;
+  background-color: #1a1a1a;
+  color: #fff;
+}
