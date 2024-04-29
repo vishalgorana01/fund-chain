@@ -21,15 +21,9 @@ export const CrowdFundingProvider = ({ children }) => {
 
     const createCampaign = async (campaign) => {
         const { title, description, target, deadline } = campaign;
-        // const web3modal = new Web3Modal();
-        // const connection = await web3modal.connect();
-        // const provider = new ethers.providers.Web3Provider(connection);
-        // const signer = provider.getSigner();
-        // const contract = fetchContract(signer);
         const web3modal = new Web3Modal();
         console.log("web3modal", web3modal);
         const connection = await web3modal.connect();
-        
         const provider = new ethers.providers.Web3Provider(connection);
         console.log("provider", provider);
         const signer = provider.getSigner();
@@ -37,7 +31,7 @@ export const CrowdFundingProvider = ({ children }) => {
         const contract = fetchContract(signer);
 
         console.log("current account", currentAccount);
-        console.log(contract)
+        console.log("CONTRACT IS:",contract)
         try {
             const transaction = await contract.createCampaign(
                 currentAccount,
