@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "ethers": "^5.7.2",
     "hardhat": "^2.22.3",
     "next": "14.2.3",
     "react": "^18",
@@ -31,7 +32,6 @@
     "chai": "^4.4.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
-    "ethers": "^6.12.0",
     "hardhat-gas-reporter": "^1.0.10",
     "postcss": "^8",
     "solidity-coverage": "^0.8.12",
