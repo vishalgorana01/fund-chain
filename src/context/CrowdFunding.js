@@ -125,23 +125,33 @@ export const CrowdFundingProvider = ({ children }) => {
   };
 
   const donate = async (pId, amount) => {
-    const web3modal = new Web3Modal();
-    const connection = await web3modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
-    const contract = fetchContract(signer);
+    if (ethereum && currentAccount) {
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(
+        CrowdFundingAddress,
+        CrowdFundingAbi,
+        signer
+      );
+      console.log("CONTRACT IS in donate:", contract);
 
-    const campaignData = await contract.donateToContract(pId, {
+    const campaignData = await contract.donateToCampaign(pId, {
       value: ethers.utils.parseEther(amount),
     });
     await campaignData.wait();
     location.reload();
     return campaignData;
+  }
   };
 
   const getDonations = async (pId) => {
-    const provider = new ethers.providers.JsonRpcProvider();
-    const contract = fetchContract(provider);
+    if (ethereum && currentAccount) {
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const contract = new ethers.Contract(
+        CrowdFundingAddress,
+        CrowdFundingAbi,
+        provider
+      );
 
     const donations = await contract.getDonators(pId);
 
@@ -156,6 +166,9 @@ export const CrowdFundingProvider = ({ children }) => {
     }
 
     return parsedDonations;
+  } else {
+    console.log("Please connect your wallet getDonations");
+  }
   };
 
   //Check if wALLET IS CONNECTED

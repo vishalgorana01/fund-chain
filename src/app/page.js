@@ -58,6 +58,7 @@ export default function Home() {
           getDonations={getDonations}
           donate={donateCampaign}
           donateFunction={donate}
+          ethereum = {ethereum}
         />
       )}
       hii there
