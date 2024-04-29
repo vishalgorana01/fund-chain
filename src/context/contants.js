@@ -1,4 +1,4 @@
 import crowdFunding from "./CrowdFunding.json";
 
-export const CrowdFundingAddress = "0xe6909ee5D1473F32EB6e830aAa487824f691Ee70";
+export const CrowdFundingAddress = "0x5678Ee211c82841e594C3d13606b5c90bD157866";
 export const CrowdFundingAbi = crowdFunding.abi;
