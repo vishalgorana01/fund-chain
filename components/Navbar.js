@@ -73,7 +73,7 @@ export default function NavBar() {
                   zIndex: -1,
                 }}
               >
-                <NextLink href="/">🫂 FundChain</NextLink>
+                <NextLink href="/">🤲 FundChain</NextLink>
               </Box>
             </Heading>
           </Flex>
