@@ -50,12 +50,10 @@ md: max-w-full lg:max-w-screen-xl md:px-24 1g:px-8 1g:py-20"
                 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight
 text-white sm:text-5xl sm: leading-none"
               >
-                Crypto King Crypto ck
+                Crowd Funding
               </h2>
               <p className="max-w-xl mb-4 text-base text-gray-200 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                quae•
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est delectus quo dignissimos sapiente modi quisquam optio possimus odit perspiciatis ratione!
               </p>
               <a
                 href="/"

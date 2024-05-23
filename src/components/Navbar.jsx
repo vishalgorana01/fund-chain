@@ -7,12 +7,12 @@ import { Logo, Menu } from "./index";
 const Navbar = () => {
   const { currentAccount, connectWallet } = useContext(CrowdFundingContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuList = ["White paper", "Donations", "Projects", "Members"];
+  const menuList = ["Home", "White paper", "Donations"];
 
   return (
     <div>
       <div className="backgroundMain ">
-        <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md: px-24 1g:px-8">
+        <div class="px-3 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-6 1g:px-8">
           <div class="relative flex items-center justify-between">
             <div class="flex items-center">
               <a
@@ -23,7 +23,7 @@ const Navbar = () => {
               >
                 <Logo color="text-white" />
                 <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                  Company
+                  CrowdFunding
                 </span>
               </a>
               <ul class="flex items-center  space-x-8 lg:flex">
@@ -83,7 +83,7 @@ const Navbar = () => {
                           <span
                             class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
                           >
-                            Company
+                            CrowdFunding
                           </span>
                         </a>
                       </div>
