@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import styles from "../styles/Home.module.css";
-import { getETHPrice, getWEIPriceInUSD } from "../lib/getETHPrice";
+import { getETHPrice, getWEIPriceInINR } from "../lib/getETHPrice";
 import {
   Heading,
   useBreakpointValue,
@@ -175,13 +175,13 @@ function CampaignCard({
                   fontWeight={"normal"}
                   color={useColorModeValue("gray.500", "gray.200")}
                 >
-                  (${getWEIPriceInUSD(ethPrice, balance)})
+                  (₹{getWEIPriceInINR(ethPrice, balance)})
                 </Text>
               </Box>
 
               <Text fontSize={"md"} fontWeight="normal">
-                target of {web3.utils.fromWei(target, "ether")} ETH ($
-                {getWEIPriceInUSD(ethPrice, target)})
+                target of {web3.utils.fromWei(target, "ether")} ETH (₹
+                {getWEIPriceInINR(ethPrice, target)})
               </Text>
               <Progress
                 colorScheme="teal"

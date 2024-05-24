@@ -3,7 +3,7 @@ import Head from "next/head";
 import NextLink from "next/link";
 import NextImage from "next/image";
 import { useRouter } from "next/router";
-import { getETHPrice, getWEIPriceInUSD } from "../../../../lib/getETHPrice";
+import { getETHPrice, getWEIPriceInINR } from "../../../../lib/getETHPrice";
 import {
   Heading,
   useBreakpointValue,
@@ -119,8 +119,8 @@ const RequestRow = ({
       <Td>{id} </Td>
       <Td>{request.description}</Td>
       <Td isNumeric>
-        {web3.utils.fromWei(request.value, "ether")}ETH ($
-        {getWEIPriceInUSD(ETHPrice, request.value)})
+        {web3.utils.fromWei(request.value, "ether")}ETH (₹
+        {getWEIPriceInINR(ETHPrice, request.value)})
       </Td>
       <Td>
         <Link
@@ -323,7 +323,7 @@ export default function Requests({
                 fontWeight={"normal"}
                 color={useColorModeValue("gray.500", "gray.200")}
               >
-                (${getWEIPriceInUSD(ETHPrice, balance)})
+                (₹{getWEIPriceInINR(ETHPrice, balance)})
               </Text>
             </Box>
           </Flex>

@@ -6,8 +6,8 @@ import { useRouter } from "next/router";
 import { useWindowSize } from "react-use";
 import {
   getETHPrice,
-  getETHPriceInUSD,
-  getWEIPriceInUSD,
+  getETHPriceInINR,
+  getWEIPriceInINR,
 } from "../../lib/getETHPrice";
 import {
   Box,
@@ -221,7 +221,7 @@ export default function CampaignSingle({
                     stat={`${web3.utils.fromWei(
                       minimumContribution,
                       "ether"
-                    )} ETH ($${getWEIPriceInUSD(
+                    )} ETH (₹${getWEIPriceInINR(
                       ETHPrice,
                       minimumContribution
                     )})`}
@@ -309,13 +309,13 @@ export default function CampaignSingle({
                         fontWeight={"normal"}
                         color={useColorModeValue("gray.500", "gray.200")}
                       >
-                        (${getWEIPriceInUSD(ETHPrice, balance)})
+                        (₹{getWEIPriceInINR(ETHPrice, balance)})
                       </Text>
                     </Box>
 
                     <Text fontSize={"md"} fontWeight="normal">
-                      target of {web3.utils.fromWei(target, "ether")} ETH ($
-                      {getWEIPriceInUSD(ETHPrice, target)})
+                      target of {web3.utils.fromWei(target, "ether")} ETH (₹
+                      {getWEIPriceInINR(ETHPrice, target)})
                     </Text>
                     <Progress
                       colorScheme="teal"
@@ -364,7 +364,7 @@ export default function CampaignSingle({
                       </InputGroup>
                       {amountInUSD ? (
                         <FormHelperText>
-                          ~$ {getETHPriceInUSD(ETHPrice, amountInUSD)}
+                          ~₹ {getETHPriceInINR(ETHPrice, amountInUSD)}
                         </FormHelperText>
                       ) : null}
                     </FormControl>

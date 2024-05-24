@@ -25,7 +25,7 @@ import {
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import { getETHPrice, getETHPriceInUSD } from "../../lib/getETHPrice";
+import { getETHPrice, getETHPriceInINR } from "../../lib/getETHPrice";
 
 import factory from "../../smart-contract/factory";
 import web3 from "../../smart-contract/web3";
@@ -122,7 +122,7 @@ export default function NewCampaign() {
                   </InputGroup>
                   {minContriInUSD ? (
                     <FormHelperText>
-                      ~$ {getETHPriceInUSD(ETHPrice, minContriInUSD)}
+                      ~₹ {getETHPriceInINR(ETHPrice, minContriInUSD)}
                     </FormHelperText>
                   ) : null}
                 </FormControl>
@@ -164,7 +164,7 @@ export default function NewCampaign() {
                   </InputGroup>
                   {targetInUSD ? (
                     <FormHelperText>
-                      ~$ {getETHPriceInUSD(ETHPrice, targetInUSD)}
+                      ~₹ {getETHPriceInINR(ETHPrice, targetInUSD)}
                     </FormHelperText>
                   ) : null}
                 </FormControl>

@@ -5,7 +5,7 @@ import { useWallet } from "use-wallet";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { getETHPrice, getETHPriceInUSD } from "../../../../lib/getETHPrice";
+import { getETHPrice, getETHPriceInINR } from "../../../../lib/getETHPrice";
 import {
   Box,
   FormControl,
@@ -121,7 +121,7 @@ export default function NewRequest() {
                   </InputGroup>
                   {inUSD ? (
                     <FormHelperText>
-                      ~$ {getETHPriceInUSD(ETHPrice, inUSD)}
+                      ~₹ {getETHPriceInINR(ETHPrice, inUSD)}
                     </FormHelperText>
                   ) : null}
                 </FormControl>
