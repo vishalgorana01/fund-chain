@@ -1,6 +1,6 @@
 FundChain : Crowdfunding Platform Powered by Ethereum Blockchain
 
-The Platform is live on Sepolia Test Network and available to use at : [fundChain.vercel.app](https://fundchainx.vercel.app/)
+The Platform is live on Sepolia Test Network and available to use at : [fundchainx.vercel.app](https://fundchainx.vercel.app/)
 
 ## Problem Statement and Necessity
 
